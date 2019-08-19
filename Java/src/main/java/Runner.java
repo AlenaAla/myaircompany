@@ -4,6 +4,8 @@ import Planes.PassengerPlane;
 import Planes.Plane;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 public class Runner {
@@ -27,14 +29,23 @@ public class Runner {
     public static void main(String[] args) {
         Airport airport = new Airport(planes);
         Airport militaryAirport = new Airport(airport.getMilitaryPlanes());
-        Airport passengerAirport = new Airport(airport.getPasPl());
-        System.out.println("Military airport sorted by max distance: " + militaryAirport
-                .sortByMaxDistance()
-                .toString());
-        System.out.println("Passenger airport sorted by max speed: " + passengerAirport
-                .sortByMaxSpeed()
-                .toString());
+        Airport passengerAirport = new Airport(airport.getPassengerPlanes());
+        System.out.println("Military airport sorted by max distance: " );
+        print(militaryAirport
+                .sortByMaxDistance().getPlanes());
+        System.out.println("Passenger airport sorted by max speed: " );
+        print(passengerAirport
+                .sortByMaxSpeed().getPlanes());
 
         System.out.println("Plane with max passenger capacity: " + passengerAirport.getPassengerPlaneWithMaxPassengersCapacity());
+}
+
+    private static void print(Collection<? extends Plane> collection) {
+        Iterator<? extends Plane> iterator = collection.iterator();
+        while (iterator.hasNext()) {
+            Plane plane = iterator.next();
+            System.out.println(plane);
+        }
+
     }
 }
