@@ -5,12 +5,12 @@ import models.ExperimentalType;
 
 import java.util.Objects;
 
-public class experimentalPlane extends Plane {
+public class ExperimentalPlane extends Plane {
 
     private ExperimentalType experimentalType;
     private ClassificationLevel classificationLevel;
 
-    public experimentalPlane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, ExperimentalType type, ClassificationLevel classificationLevel) {
+    public ExperimentalPlane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, ExperimentalType type, ClassificationLevel classificationLevel) {
         super(model, maxSpeed, maxFlightDistance, maxLoadCapacity);
         this.experimentalType = type;
         this.classificationLevel = classificationLevel;
@@ -35,9 +35,9 @@ public class experimentalPlane extends Plane {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof experimentalPlane)) return false;
+        if (!(o instanceof ExperimentalPlane)) return false;
         if (!super.equals(o)) return false;
-        experimentalPlane that = (experimentalPlane) o;
+        ExperimentalPlane that = (ExperimentalPlane) o;
         return experimentalType == that.experimentalType &&
                 classificationLevel == that.classificationLevel;
     }
