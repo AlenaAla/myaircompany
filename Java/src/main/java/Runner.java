@@ -5,7 +5,6 @@ import Planes.Plane;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 public class Runner {
@@ -41,11 +40,8 @@ public class Runner {
 }
 
     private static void print(Collection<? extends Plane> collection) {
-        Iterator<? extends Plane> iterator = collection.iterator();
-        while (iterator.hasNext()) {
-            Plane plane = iterator.next();
+        for (Plane plane : collection) {
             System.out.println(plane);
         }
-
     }
 }

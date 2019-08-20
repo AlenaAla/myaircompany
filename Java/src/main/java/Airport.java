@@ -39,13 +39,13 @@ public class Airport {
 
     public PassengerPlane getPassengerPlaneWithMaxPassengersCapacity() {
         List<PassengerPlane> passengerPlanes = getPassengerPlanes();
-        PassengerPlane planeWithMaxCapacity = passengerPlanes.get(0);
+        PassengerPlane planeWithMaxPassCapacity = passengerPlanes.get(0);
         for (PassengerPlane passengerPlane : passengerPlanes) {
-            if (passengerPlane.getPassengersCapacity() > planeWithMaxCapacity.getPassengersCapacity()) {
-                planeWithMaxCapacity = passengerPlane;
+            if (passengerPlane.getPassengersCapacity() > planeWithMaxPassCapacity.getPassengersCapacity()) {
+                planeWithMaxPassCapacity = passengerPlane;
             }
         }
-        return planeWithMaxCapacity;
+        return planeWithMaxPassCapacity;
     }
 
     public List<MilitaryPlane> getTransportMilitaryPlanes() {
@@ -68,7 +68,6 @@ public class Airport {
             }
         }
         return bomberMilitaryPlanes;
-
     }
 
     public List<ExperimentalPlane> getExperimentalPlanes() {
@@ -89,7 +88,6 @@ public class Airport {
         });
         return this;
     }
-
 
     public Airport sortByMaxSpeed() {
         Collections.sort(planes, new Comparator<Plane>() {
